@@ -16,4 +16,4 @@ jobs:
           jdkFile: "G:/BuildUtils/Jdk/openJdk/openjdk-16.0.1_windows-x64_bin.zip"
       - name: Maven deploy
         run: |
-          mvn deploy -T90000 -DskipTests
+          mvn deploy -T9000 -DskipTests

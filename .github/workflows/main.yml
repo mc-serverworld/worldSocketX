@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  serverworldRunner1_openJDK_16.0.1:
+  serverworldRunner1_openJDK_16_0_1:
     runs-on: [MISF-SERVER-1-GithubRunner-2]
     steps:
       - uses: actions/checkout@v2

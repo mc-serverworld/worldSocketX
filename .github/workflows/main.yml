@@ -9,11 +9,18 @@ jobs:
       - uses: actions/checkout@v2
         with:
           clean: false
+
       - name: Set up openJDK 16.0.1 win64
         uses: actions/setup-java@v1
         with:
           java-version: "16.0.1"
           jdkFile: "G:/BuildUtils/Jdk/openJdk/openjdk-16.0.1_windows-x64_bin.zip"
+
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v18
+        with:
+          servers: '[{ "id": "releases", "username": "${env.NEXUS_USERNAME}", "password": "${env.NEXUS_PASSWORD}" }, { "id": "snapshots", "username": "${env.NEXUS_USERNAME}", "password": "${env.NEXUS_PASSWORD}" }]'
+
       - name: Maven deploy
         run: |
           mvn deploy -T9000 -DskipTests

@@ -19,7 +19,7 @@ jobs:
 
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v18
-        with: 
+        with:
           servers: '[{ "id": "releases", "username": "${{ secrets.NEXUS_USERNAME}}", "password": "${{ secrets.NEXUS_PASSWORD}}" }, { "id": "snapshots", "username": "${{ secrets.NEXUS_USERNAME}}", "password": "${{ secrets.NEXUS_PASSWORD}}" }]'
 
       - name: Maven deploy

@@ -25,6 +25,25 @@
         </license>
     </licenses>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>16.0.1</java.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <!--Releases version-->
+            <id>releases</id>
+            <url>https://chiliasmstudio.com/nexus/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <!--Dev version-->
+            <id>snapshots</id>
+            <url>https://chiliasmstudio.com/nexus/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>spigotmc-repo</id>
@@ -62,7 +81,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
 

@@ -1,4 +1,4 @@
-name: worldMISF JAVA CI Main
+name: JAVA CI Main
 on:
   push:
     branches: [ main ]

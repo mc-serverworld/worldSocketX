@@ -35,12 +35,12 @@ import java.util.UUID;
 
 public class worldSocketXWaterFall extends Plugin {
     public SSLSocketServer sslSocketServer;
-    private static worldSocketXWaterFall waterFallworldSocketX;
+    private static worldSocketXWaterFall worldSocketXWaterFall;
     private static Configuration configuration;
 
     @Override
     public void onEnable() {
-        waterFallworldSocketX = this;
+        worldSocketXWaterFall = this;
         LoadConfig();
         startSocketServer();
     }
@@ -106,6 +106,6 @@ public class worldSocketXWaterFall extends Plugin {
      * Return WaterFallSocketX Plugin Instance.
      */
     public static worldSocketXWaterFall getInstance() {
-        return waterFallworldSocketX;
+        return worldSocketXWaterFall;
     }
 }

@@ -55,7 +55,7 @@ public class SSLSocketKey {
             kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             tmf = TrustManagerFactory.getInstance("SunX509");
 
-            keyStore = KeyStore.getInstance("PKIX");
+            keyStore = KeyStore.getInstance("PKCS12");
             trustStore = KeyStore.getInstance("PKIX");
 
             keyStore.load(new FileInputStream(KeyStoreFile), KeyStorePassword.toCharArray());

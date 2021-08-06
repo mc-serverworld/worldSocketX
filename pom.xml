@@ -29,6 +29,7 @@
         <java.version>16.0.2</java.version>
         <maven.compiler.source>16.0.2</maven.compiler.source>
         <maven.compiler.target>16.0.2</maven.compiler.target>
+        <maven.compiler.release>16.0.2</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -85,11 +86,6 @@
         </repository>
 
         <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-
-        <repository>
             <id>CodeMC</id>
             <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
@@ -98,8 +94,13 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
-    </repositories>
 
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    
     <dependencies>
 
         <!-- Minecraft api (Paper)  -->

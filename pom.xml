@@ -46,6 +46,18 @@
     </distributionManagement>
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources/</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -53,7 +65,7 @@
                 <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
-                    <target>${java.version}</target> <!-- compiler with jdk 16.0.2-->
+                    <target>${java.version}</target>
                     <release>${java.version}</release>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -100,7 +112,6 @@
     </repositories>
 
     <dependencies>
-
         <!-- Minecraft api (Paper)  -->
         <dependency>
             <groupId>io.papermc.paper</groupId>

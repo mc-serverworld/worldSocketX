@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="worldSocketX" target="16.2" />
+      <module name="worldSocketX" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

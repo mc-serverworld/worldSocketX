@@ -40,14 +40,10 @@ public class SSLSocketKey {
     private KeyStore keyStore;
     private KeyStore trustStore;
 
-    @Setter(AccessLevel.PUBLIC)
-    private String KeyStoreFile;
-    @Setter(AccessLevel.PUBLIC)
-    private String TrustStoreFile;
-    @Setter(AccessLevel.PUBLIC)
-    private String KeyStorePassword;
-    @Setter(AccessLevel.PUBLIC)
-    private String TrustStorePassword;
+    @Setter(AccessLevel.PUBLIC) private String KeyStoreFile;
+    @Setter(AccessLevel.PUBLIC) private String TrustStoreFile;
+    @Setter(AccessLevel.PUBLIC) private String KeyStorePassword;
+    @Setter(AccessLevel.PUBLIC) private String TrustStorePassword;
 
     /**
      * Return SSLContext, need initialization before use this method.

@@ -33,18 +33,12 @@ import java.util.UUID;
 
 public class MessageObject {
 
-    @Getter(AccessLevel.PUBLIC)
-    private String Message;
-    @Getter(AccessLevel.PUBLIC)
-    private String MessageType;
-    @Getter(AccessLevel.PUBLIC)
-    private String Sender;
-    @Getter(AccessLevel.PUBLIC)
-    private String Receiver;
-    @Getter(AccessLevel.PUBLIC)
-    private ReceiverType ReceiverType;
-    @Getter(AccessLevel.PUBLIC)
-    private Long Time;
+    @Getter(AccessLevel.PUBLIC) private String Message;
+    @Getter(AccessLevel.PUBLIC) private String MessageType;
+    @Getter(AccessLevel.PUBLIC) private String Sender;
+    @Getter(AccessLevel.PUBLIC) private String Receiver;
+    @Getter(AccessLevel.PUBLIC) private ReceiverType ReceiverType;
+    @Getter(AccessLevel.PUBLIC) private Long Time;
 
     public UUID getSenderUUID() {
         return UUID.fromString(Sender);

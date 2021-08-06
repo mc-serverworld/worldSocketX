@@ -44,14 +44,12 @@ public class ChannelObject {
     /**
      * Return ChannelName.
      */
-    @Getter(AccessLevel.PUBLIC)
-    private String ChannelName;
+    @Getter(AccessLevel.PUBLIC) private String ChannelName;
 
     /**
      * Return clients in channel.
      */
-    @Getter(AccessLevel.PUBLIC)
-    private Set<ClientObject> Clients = new HashSet<>();
+    @Getter(AccessLevel.PUBLIC) private Set<ClientObject> Clients = new HashSet<>();
 
     /**
      * Add clinet to channel.

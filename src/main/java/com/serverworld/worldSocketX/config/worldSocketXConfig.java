@@ -25,43 +25,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class worldSocketXConfig {
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static int ApiVersion;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static boolean Debug;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static int Port;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static int ApiVersion;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static boolean Debug;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static int Port;
     //@Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String Password;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static int Threads;
-
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static java.util.UUID UUID;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static int Threads;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static java.util.UUID UUID;
     //@Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String Name;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static String Host;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static int CheckRate;
-
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static String KeyStoreFile;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static String TrustStoreFile;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static String KeyStorePassword;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
-    private static String TrustStorePassword;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String Host;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static int CheckRate;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String KeyStoreFile;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String TrustStoreFile;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String KeyStorePassword;
+    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String TrustStorePassword;
 
 /*
     @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC) private static String SERVER_KEY_STORE_FILE;

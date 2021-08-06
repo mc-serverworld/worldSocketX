@@ -31,10 +31,8 @@ import java.util.UUID;
  * Login information, contain UUID and Protocol version.
  */
 public class LoginMessage {
-    @Getter(AccessLevel.PUBLIC)
-    UUID UUID;
-    @Getter(AccessLevel.PUBLIC)
-    int ProtocolVersion;
+    @Getter(AccessLevel.PUBLIC) UUID UUID;
+    @Getter(AccessLevel.PUBLIC) int ProtocolVersion;
 
     public LoginMessage(UUID UUID, int ProtocolVersion) {
         this.UUID = UUID;

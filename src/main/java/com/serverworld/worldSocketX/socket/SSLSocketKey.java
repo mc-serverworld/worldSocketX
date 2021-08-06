@@ -52,7 +52,7 @@ public class SSLSocketKey {
         try {
             ctx = SSLContext.getInstance("TLSv1.3");
 
-            kmf = KeyManagerFactory.getInstance("SunX509");
+            kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             tmf = TrustManagerFactory.getInstance("SunX509");
 
             keyStore = KeyStore.getInstance("PKIX");

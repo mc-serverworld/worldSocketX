@@ -42,6 +42,7 @@ public class worldSocketXWaterFall extends Plugin {
     public void onEnable() {
         waterFallworldSocketX = this;
         LoadConfig();
+        startSocketServer();
     }
 
     public void LoadConfig() {

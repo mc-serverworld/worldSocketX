@@ -2,6 +2,5 @@ main: com.serverworld.worldSocketX.paperspigot.worldSocketX
 name: ${project.name}
 version: ${project.version}
 authors:
-  - paul0665
   - mc-serverworld
 website: www.mc-serverworld.com

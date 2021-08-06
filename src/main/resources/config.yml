@@ -11,7 +11,7 @@ general:
   #port of socket
 
 socketserver:
-  threads: 100
+  threads: 256
   #Number of client
 
 client:

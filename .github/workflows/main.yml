@@ -3,19 +3,19 @@ on:
   push:
     branches: [ main ]
 jobs:
-  openJDK_16_0_1:
-    runs-on: [MISF-SERVER-1-GithubRunner-1]
+  openJDK_16_0_2:
+    runs-on: [ MISF-SERVER-1-GithubRunner-1 ]
     steps:
       - name: Base setup
         uses: actions/checkout@v2
         with:
           clean: false
 
-      - name: Set up openJDK 16.0.1 win64
+      - name: Set up openJDK 16.0.2 win64
         uses: actions/setup-java@v1
         with:
-          java-version: "16.0.1"
-          jdkFile: "G:/BuildUtils/Jdk/openJdk/openjdk-16.0.1_windows-x64_bin.zip"
+          java-version: "16.0.2"
+          jdkFile: "C:/java/jdk-16.0.2/openjdk-16.0.2_windows-x64_bin.zip"
 
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v18

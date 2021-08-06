@@ -24,4 +24,5 @@ jobs:
 
       - name: Maven deploy
         run: |
+          mvn -version
           mvn deploy -T9000 -DskipTests

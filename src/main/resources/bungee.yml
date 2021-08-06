@@ -1,4 +1,4 @@
-main: com.serverworld.worldSocketX.waterfall.WaterFallworldSocketX
+main: com.serverworld.worldSocketX.waterfall.worldSocketXWaterFall
 name: ${project.name}
 version: ${project.version}
 authors:

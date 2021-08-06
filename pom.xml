@@ -27,9 +27,6 @@
 
     <properties>
         <java.version>16.0.2</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -57,6 +54,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target> <!-- compiler with jdk 16.0.2-->
+                    <release>${java.version}</release>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

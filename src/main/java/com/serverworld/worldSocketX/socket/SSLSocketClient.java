@@ -60,8 +60,6 @@ public class SSLSocketClient {
                 DebugMessage.sendInfo("Loading login message...");
                 LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
                 out.println(loginMessage.getLoginJson());
-                out.println(loginMessage.getLoginJson());
-                out.flush();
                 DebugMessage.sendInfo("Login with: " + loginMessage.UUID);
                 DebugMessage.sendInfo("ProtocolVersion: " + 0);
                 while (true){

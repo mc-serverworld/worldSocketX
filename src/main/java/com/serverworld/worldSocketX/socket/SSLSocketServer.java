@@ -25,7 +25,7 @@ import com.diogonunes.jcolor.Attribute;
 import com.google.gson.Gson;
 import com.serverworld.worldSocketX.api.ReceiverType;
 import com.serverworld.worldSocketX.config.worldSocketXConfig;
-import com.serverworld.worldSocketX.waterfall.uitls.DebugMessage;
+import com.serverworld.worldSocketX.waterfall.utils.DebugMessage;
 import net.md_5.bungee.api.ChatColor;
 
 import javax.net.ssl.SSLServerSocket;

@@ -18,7 +18,7 @@
  *
  */
 
-package com.serverworld.worldSocketX.waterfall.uitls;
+package com.serverworld.worldSocketX.waterfall.utils;
 
 
 import com.serverworld.worldSocketX.config.worldSocketXConfig;

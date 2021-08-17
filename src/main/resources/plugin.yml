@@ -1,4 +1,4 @@
-main: com.serverworld.worldSocketX.paperspigot.worldSocketX
+main: com.serverworld.worldSocketX.paper.worldSocketXPaper
 name: ${project.name}
 version: ${project.version}
 authors: mc-serverworld

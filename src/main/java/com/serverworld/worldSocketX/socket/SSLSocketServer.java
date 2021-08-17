@@ -215,7 +215,7 @@ public class SSLSocketServer extends Thread {
 
                 }
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             } finally {
                 if (object != null) {
                     Clients.remove(object);

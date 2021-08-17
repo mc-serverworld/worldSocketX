@@ -92,10 +92,10 @@ public class SSLSocketServer extends Thread {
                 out = new PrintWriter(socket.getOutputStream(), true);
 
                 while (true) {
-                    if (in.hasNextLine())
-                        LoginMessage = in.nextLine();
-                    else
+                    LoginMessage = in.nextLine();
+                    if(LoginMessage.isEmpty())
                         return;
+                    else DebugMessage.sendInfo("receive login message\n" + LoginMessage);
 
                     synchronized (Clients) {
                         Gson gson = new Gson();

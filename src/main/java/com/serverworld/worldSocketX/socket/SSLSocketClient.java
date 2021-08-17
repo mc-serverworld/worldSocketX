@@ -56,7 +56,7 @@ public class SSLSocketClient {
                 socket = (SSLSocket) (socketKey.getCtx().getSocketFactory().createSocket(worldSocketXConfig.getHost(),worldSocketXConfig.getPort()));
                 socket.setSoTimeout(300);
                 Scanner in = new Scanner(socket.getInputStream());
-                PrintWriter out = new PrintWriter(socket.getOutputStream());
+                PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
                 DebugMessage.sendInfo("Loading login message...");
                 LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
                 out.println(loginMessage.getLoginJson());

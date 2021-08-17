@@ -36,7 +36,7 @@ public class worldSocketXPaper extends JavaPlugin {
         saveDefaultConfig();
         reloadConfig();
         if(getConfig().getString("client.uuid").isEmpty())
-            getConfig().set("client.uuid",UUID.randomUUID());
+            getConfig().set("client.uuid",UUID.randomUUID().toString());
         saveConfig();
         reloadConfig();
         worldSocketXConfig.setApiVersion(getConfig().getInt("configinfo.api-version"));

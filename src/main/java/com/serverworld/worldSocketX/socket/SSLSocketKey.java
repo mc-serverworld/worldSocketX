@@ -53,10 +53,10 @@ public class SSLSocketKey {
             ctx = SSLContext.getInstance("TLSv1.3");
 
             kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            tmf = TrustManagerFactory.getInstance("SunX509");
+            tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
             keyStore = KeyStore.getInstance("PKCS12");
-            trustStore = KeyStore.getInstance("PKIX");
+            trustStore = KeyStore.getInstance("JKS");
 
             keyStore.load(new FileInputStream(KeyStoreFile), KeyStorePassword.toCharArray());
             trustStore.load(new FileInputStream(TrustStoreFile), TrustStorePassword.toCharArray());
@@ -72,7 +72,7 @@ public class SSLSocketKey {
         }
         return null;
     }
-
+    
     /**
      * Load KeyStore,TrustStore form path provide by config.
      */

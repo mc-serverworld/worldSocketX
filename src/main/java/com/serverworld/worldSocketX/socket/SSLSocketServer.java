@@ -92,6 +92,8 @@ public class SSLSocketServer extends Thread {
                 out = new PrintWriter(socket.getOutputStream(), true);
 
                 while (true) {
+                    if(!in.hasNextLine())
+                        return;
                     LoginMessage = in.nextLine();
                     if(LoginMessage==null)
                         return;

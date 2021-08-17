@@ -118,6 +118,7 @@ public class SSLSocketClient {
         try {
             PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
             out.println("");//TODO Send Message
+            DebugMessage.sendInfoIfDebug("Send message\n"+messageObject);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,7 +127,8 @@ public class SSLSocketClient {
     public static void sendRawMessage(String message){
         try {
             PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-            out.println(message);//TODO Send Message
+            out.println(message);
+            DebugMessage.sendInfoIfDebug("Send message\n"+message);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -56,7 +56,7 @@ public class SSLSocketClient {
                 socket = (SSLSocket) (socketKey.getCtx().getSocketFactory().createSocket(worldSocketXConfig.getHost(),worldSocketXConfig.getPort()));
                 socket.setSoTimeout(300);
                 Scanner in = new Scanner(socket.getInputStream());
-                PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
+                PrintWriter out = new PrintWriter(socket.getOutputStream());
                 DebugMessage.sendInfo("Loading login message...");
                 LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
                 sendRawMessage(loginMessage.getLoginJson());
@@ -126,8 +126,9 @@ public class SSLSocketClient {
 
     public static void sendRawMessage(String message){
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
+            PrintWriter out = new PrintWriter(socket.getOutputStream());
             out.println(message);
+            out.flush();
             DebugMessage.sendInfoIfDebug("Send message\n"+message);
         } catch (Exception e) {
             e.printStackTrace();

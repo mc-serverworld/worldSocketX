@@ -126,9 +126,8 @@ public class SSLSocketClient {
 
     public static void sendRawMessage(String message){
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream());
+            PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
             out.println(message);
-            out.flush();
             DebugMessage.sendInfoIfDebug("Send message\n"+message);
         } catch (Exception e) {
             e.printStackTrace();

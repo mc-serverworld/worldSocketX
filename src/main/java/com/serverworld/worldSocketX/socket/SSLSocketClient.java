@@ -54,12 +54,13 @@ public class SSLSocketClient {
                 socketKey.initialization();
 
                 socket = (SSLSocket) (socketKey.getCtx().getSocketFactory().createSocket(worldSocketXConfig.getHost(),worldSocketXConfig.getPort()));
-                socket.setSoTimeout(300);
+                socket.setSoTimeout(3000);
                 Scanner in = new Scanner(socket.getInputStream());
                 PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
                 DebugMessage.sendInfo("Loading login message...");
                 LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
-                out.println("test\n");
+                out.println("test");
+                out.flush();
                 sleep(3000);
                 out.println(loginMessage.getLoginJson());
                 DebugMessage.sendInfo("Login with: " + loginMessage.UUID);

@@ -92,8 +92,11 @@ public class SSLSocketServer extends Thread {
                 out = new PrintWriter(socket.getOutputStream(), true);
 
                 while (true) {
-                    if(!in.hasNextLine())
-                        return;
+                    if(in.hasNextLine())
+                        DebugMessage.sendInfo("receive login message\n" + in.nextLine());
+                    else if(in.hasNextLine())
+                        break;
+                    /*
                     LoginMessage = in.nextLine();
                     if(LoginMessage==null)
                         return;
@@ -111,7 +114,7 @@ public class SSLSocketServer extends Thread {
                         object = new ClientObject(loginMessage.UUID, socket, out, loginMessage.ProtocolVersion);
                         Clients.add(object);
                         break;
-                    }
+                    }*/
                 }
                 out.println("ACCEPTED");
                 DebugMessage.sendInfo("Socket join: " + object.getUUID());

@@ -87,6 +87,8 @@ public class SSLSocketServer extends Thread {
 
         @Override
         public void run() {
+            DebugMessage.sendInfo("New client connect");
+            DebugMessage.sendInfo("ip: " + socket.getRemoteSocketAddress().toString());
             try {
                 in = new Scanner(socket.getInputStream());
                 out = new PrintWriter(socket.getOutputStream(), true);

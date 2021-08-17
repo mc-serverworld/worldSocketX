@@ -1,5 +1,5 @@
 main: com.serverworld.worldSocketX.waterfall.worldSocketXWaterFall
 name: ${project.name}
 version: ${project.version}
-authors: mc-serverworld
+authors: MCserverworld
 website: www.mc-serverworld.com

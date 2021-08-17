@@ -59,6 +59,7 @@ public class SSLSocketClient {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
                 DebugMessage.sendInfo("Loading login message...");
                 LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
+                out.print("jaeogpjaega");
                 out.println(loginMessage.getLoginJson());
                 DebugMessage.sendInfo("Login with: " + loginMessage.UUID);
                 DebugMessage.sendInfo("ProtocolVersion: " + 0);

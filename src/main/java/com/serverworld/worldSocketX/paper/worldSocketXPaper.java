@@ -35,7 +35,7 @@ public class worldSocketXPaper extends JavaPlugin {
     public void loadConfig(){
         saveDefaultConfig();
         reloadConfig();
-        if(UUID.fromString(getConfig().getString("client.uuid"))instanceof UUID)
+        if(getConfig().getString("client.uuid").isEmpty())
             getConfig().set("client.uuid",UUID.randomUUID());
         saveConfig();
         reloadConfig();

@@ -63,7 +63,7 @@ public class SSLSocketServer extends Thread {
             System.out.println(Ansi.colorize("Listener set", Attribute.GREEN_TEXT()));
             listener.setNeedClientAuth(true);//Request client trusted
             listener.setEnabledProtocols(new String[]{"TLSv1.3"});//Force TLS 1.3
-            //listener.setEnabledCipherSuites(new String[]{"TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"});
+            listener.setEnabledCipherSuites(new String[]{"TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"});
             ExecutorService pool = Executors.newFixedThreadPool(worldSocketXConfig.getThreads());
             System.out.println(Ansi.colorize("Pool set using " + worldSocketXConfig.getThreads() + " Threads", Attribute.GREEN_TEXT()));
             while (true) {

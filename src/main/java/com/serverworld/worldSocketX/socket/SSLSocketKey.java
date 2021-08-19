@@ -51,7 +51,6 @@ public class SSLSocketKey {
     public SSLContext getCtx() {
         try {
             ctx = SSLContext.getInstance("TLSv1.2");
-
             kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
@@ -63,7 +62,6 @@ public class SSLSocketKey {
 
             kmf.init(keyStore, KeyStorePassword.toCharArray());
             tmf.init(trustStore);
-
 
             ctx.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
             return ctx;

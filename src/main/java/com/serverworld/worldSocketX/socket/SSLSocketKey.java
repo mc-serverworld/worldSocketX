@@ -50,7 +50,7 @@ public class SSLSocketKey {
      */
     public SSLContext getCtx() {
         try {
-            ctx = SSLContext.getInstance("TLSv1.2");
+            ctx = SSLContext.getInstance("TLS");
             kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 

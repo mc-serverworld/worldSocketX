@@ -66,7 +66,7 @@ public class SSLSocketClient {
                     //in = new Scanner(socket.getInputStream());
                     if (in.hasNextLine()) {
                         String message = in.nextLine();
-                        DebugMessage.sendInfoIfDebug("----Message receive----\n" + message + "\n----------------------");
+                        DebugMessage.sendInfoIfDebug("\n----Message receive----\n" + message + "\n----------------------");
                         if(message.equals("ACCEPTED")){
                             DebugMessage.sendInfo(ChatColor.GREEN + "Connected to server!");
                         }else if(message.equals("ERROR::UUID_USED")) {

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  openJDK_16_0_2:
+  openJDK_17:
     runs-on: [ MISF-SERVER-1-GithubRunner-1 ]
     steps:
       - name: Base setup

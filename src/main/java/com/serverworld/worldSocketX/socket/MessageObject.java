@@ -61,9 +61,4 @@ public class MessageObject {
         this.ReceiverType = receiverType;
         this.Time = System.currentTimeMillis();
     }
-
-    public HashCode getCRC32C() {
-        return Hashing.crc32c().hashString(Message + Time, StandardCharsets.UTF_8);
-    }
-
 }

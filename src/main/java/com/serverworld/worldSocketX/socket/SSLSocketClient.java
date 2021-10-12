@@ -64,16 +64,15 @@ public class SSLSocketClient {
                 DebugMessage.sendInfo("ProtocolVersion: " + 0);
                 while (true){
                     //in = new Scanner(socket.getInputStream());
-                    if (in.hasNextLine()) {
+                    if(in.hasNextLine()) {
                         String message = in.nextLine();
                         DebugMessage.sendInfoIfDebug("\n----Message receive----\n" + message + "\n----------------------");
                         if(message.equals("ACCEPTED")){
                             DebugMessage.sendInfo(ChatColor.GREEN + "Connected to server!");
                         }else if(message.equals("ERROR::UUID_USED")) {
                             DebugMessage.sendWarring(ChatColor.RED + "The UUID has been used!");
-                        }else if(message.startsWith("CHECK::")){
-                            String[] stgs = message.split("::");
-                            SendMessageList.removeIf(stuff -> stuff.getCRC32C().equals(stgs[1]));
+                        }else if(message.startsWith("CHECK")){
+
                         }else {
                             /*
                             JsonParser jsonParser = new JsonParser();

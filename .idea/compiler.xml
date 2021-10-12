@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="worldSocketX" target="16" />
+      <module name="worldSocketX" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

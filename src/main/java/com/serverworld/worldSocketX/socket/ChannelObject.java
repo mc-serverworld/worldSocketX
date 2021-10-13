@@ -31,7 +31,6 @@ import java.util.Set;
  */
 public class ChannelObject {
 
-
     /**
      * Create new channel.
      *

@@ -20,6 +20,8 @@
 
 package com.serverworld.worldSocketX.socket;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import com.serverworld.worldSocketX.paper.worldSocketXPaper;
 import com.serverworld.worldSocketX.paper.utils.DebugMessage;
@@ -74,6 +76,8 @@ public class SSLSocketClient {
                         }else if(message.startsWith("CHECK")){
 
                         }else {
+                            Gson gson = new GsonBuilder().serializeNulls().create();
+                            MessageObject msg = gson.fromJson(message, MessageObject.class);
                             /*
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jsonmsg = jsonParser.parse(message).getAsJsonObject();

@@ -26,6 +26,7 @@ import lombok.Getter;
 import javax.annotation.Nullable;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
+import java.util.zip.CRC32C;
 
 
 public class MessageObject {
@@ -35,7 +36,8 @@ public class MessageObject {
     @Getter(AccessLevel.PUBLIC) private String Sender;
     @Getter(AccessLevel.PUBLIC) private String Receiver;
     @Getter(AccessLevel.PUBLIC) private ReceiverType ReceiverType;
-    @Getter(AccessLevel.PUBLIC) private Long Time;
+    @Getter(AccessLevel.PUBLIC)
+    private Long Time;
 
     public UUID getSenderUUID() {
         return UUID.fromString(Sender);
@@ -45,10 +47,11 @@ public class MessageObject {
         return UUID.fromString(Receiver);
     }
 
-    /*public MessageObject(String Message, UUID sender, UUID receiver) {
-        this.Sender = sender.toString();
-        this.Receiver = receiver.toString();
-    }*/
+    public CRC32C getCRC32C() {
+        CRC32C Scm = new CRC32C();
+        Scm.update(Byte.parseByte(Message + Time));
+        return Scm;
+    }
 
     public MessageObject(String Message, String sender, String receiver, ReceiverType receiverType, @Nullable String messageType) {
         this.Message = Message;

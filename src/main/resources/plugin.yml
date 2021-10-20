@@ -1,5 +1,5 @@
 main: com.serverworld.worldSocketX.paper.worldSocketXPaper
 name: ${project.name}
 version: ${project.version}
-authors: [MCserverworld]
+authors: [ mcserverworld ]
 website: www.mc-serverworld.com

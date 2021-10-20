@@ -121,7 +121,7 @@ public class SSLSocketServer extends Thread {
                     String input = in.nextLine();
                     Gson gson = new Gson();
                     MessageObject message = gson.fromJson(input, MessageObject.class);
-                    //out.println("CHECK::" + message.getCRC32C());
+                    out.println("CHECK::" + message.getCRC32C());
                     //-------START SOCKET FUNCTION---------
                     if (message.getReceiverType().equals(ReceiverType.SOCKETSYSTEM)) {
 

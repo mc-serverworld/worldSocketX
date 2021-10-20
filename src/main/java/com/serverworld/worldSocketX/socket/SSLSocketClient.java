@@ -74,6 +74,7 @@ public class SSLSocketClient {
                         }else {
                             Gson gson = new GsonBuilder().serializeNulls().create();
                             MessageObject msg = gson.fromJson(message, MessageObject.class);
+
                             /*
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jsonmsg = jsonParser.parse(message).getAsJsonObject();

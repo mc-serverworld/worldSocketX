@@ -62,7 +62,6 @@ public class SSLSocketClient {
                 DebugMessage.sendInfo("Login with: " + loginMessage.UUID);
                 DebugMessage.sendInfo("ProtocolVersion: " + 0);
                 while (true){
-                    //in = new Scanner(socket.getInputStream());
                     if(in.hasNextLine()) {
                         String message = in.nextLine();
                         DebugMessage.sendInfoIfDebug("\n----Message receive----\n" + message + "\n----------------------");

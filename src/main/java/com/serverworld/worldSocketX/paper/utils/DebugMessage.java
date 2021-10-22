@@ -20,21 +20,36 @@ package com.serverworld.worldSocketX.paper.utils;
 
 import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import com.serverworld.worldSocketX.paper.worldSocketXPaper;
+import com.serverworld.worldSocketX.waterfall.worldSocketXWaterFall;
 
 public class DebugMessage {
-
-    public static void sendInfo(String msg){ worldSocketXPaper.getInstance().getLogger().info(msg);
+    /**
+     * Send info level message to console.
+     */
+    public static void sendInfo(String msg) {
+        worldSocketXPaper.getInstance().getLogger().info(msg);
     }
-    public static void sendWarring(String msg){
+
+    /**
+     * Send warring level message to console.
+     */
+    public static void sendWarring(String msg) {
         worldSocketXPaper.getInstance().getLogger().warning(msg);
     }
-    public static void sendInfoIfDebug(String msg){
-        if(worldSocketXConfig.isDebug())
-            worldSocketXPaper.getInstance().getLogger().info(msg);
 
+    /**
+     * Send info level message to console if debug mode is true.
+     */
+    public static void sendInfoIfDebug(String msg) {
+        if (worldSocketXConfig.isDebug())
+            worldSocketXPaper.getInstance().getLogger().info(msg);
     }
-    public static void sendWarringIfDebug(String msg){
-        if(worldSocketXConfig.isDebug())
+
+    /**
+     * Send warring level message to console if debug mode is true.
+     */
+    public static void sendWarringIfDebug(String msg) {
+        if (worldSocketXConfig.isDebug())
             worldSocketXPaper.getInstance().getLogger().warning(msg);
     }
 }

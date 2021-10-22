@@ -17,14 +17,12 @@
 
 package com.serverworld.worldSocketX.socket;
 
-import com.google.common.hash.HashCode;
-import com.google.common.hash.Hashing;
 import com.serverworld.worldSocketX.api.ReceiverType;
+import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import lombok.AccessLevel;
 import lombok.Getter;
 
 import javax.annotation.Nullable;
-import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.zip.CRC32C;
 
@@ -35,7 +33,8 @@ public class MessageObject {
     @Getter(AccessLevel.PUBLIC) private String MessageType;
     @Getter(AccessLevel.PUBLIC) private String Sender;
     @Getter(AccessLevel.PUBLIC) private String Receiver;
-    @Getter(AccessLevel.PUBLIC) private ReceiverType ReceiverType;
+    @Getter(AccessLevel.PUBLIC)
+    private ReceiverType ReceiverType;
     @Getter(AccessLevel.PUBLIC)
     private Long Time;
 
@@ -53,12 +52,22 @@ public class MessageObject {
         return Scm;
     }
 
-    public MessageObject(String Message, String sender, String receiver, ReceiverType receiverType, @Nullable String messageType) {
+    /**
+     * @param Message      Editable:The message need to send.
+     * @param MessageType  Editable:Type of message.
+     * @param Sender       Sender UUID,use UUID in config if empty.
+     * @param Receiver     Receiver UUID,ignore if ReceiverType is MASTER(socket server).
+     * @param ReceiverType Can be CLIENT(send to other client with UUID), MASTER(socket server), CHANNEL(send via channel name) or SOCKETSYSTEM(for advance user only);
+     */
+    public MessageObject(String Message, String Sender, String Receiver, ReceiverType ReceiverType, @Nullable String MessageType) {
         this.Message = Message;
-        this.MessageType = messageType;
-        this.Sender = sender;
-        this.Receiver = receiver;
-        this.ReceiverType = receiverType;
+        this.MessageType = MessageType;
+        if (Sender.isEmpty())
+            this.Sender = worldSocketXConfig.getUUID().toString();
+        else
+            this.Sender = Sender;
+        this.Receiver = Receiver;
+        this.ReceiverType = ReceiverType;
         this.Time = System.currentTimeMillis();
     }
 }

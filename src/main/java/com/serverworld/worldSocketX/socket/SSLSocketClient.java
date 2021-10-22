@@ -23,11 +23,15 @@ import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import com.serverworld.worldSocketX.paper.worldSocketXPaper;
 import com.serverworld.worldSocketX.paper.utils.DebugMessage;
 import net.md_5.bungee.api.ChatColor;
+import org.checkerframework.checker.units.qual.C;
 
 import javax.net.ssl.SSLSocket;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.zip.CRC32C;
 
 public class SSLSocketClient {
     //private sender sender = new sender();
@@ -39,6 +43,7 @@ public class SSLSocketClient {
 
     //static ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<String>();
     private static ConcurrentLinkedQueue<MessageObject> SendMessageList = new ConcurrentLinkedQueue<>();
+    private static ConcurrentLinkedQueue<String> ConnectCheckList = new ConcurrentLinkedQueue<>();
 
     public void startConnect(){
         Connecter connecter = new Connecter();
@@ -154,21 +159,25 @@ public class SSLSocketClient {
         }
     }*/
 
-    private void checker(){
-        SendMessageList.clear();
+    private void Checker() {
+        ConnectCheckList.clear();
         worldSocketXPaper.getInstance().getServer().getScheduler().scheduleSyncRepeatingTask(worldSocketXPaper.getInstance(), new Runnable() {
             @Override
             public void run() {
-                synchronized (SendMessageList) {
-                        //ConnectCheckList.add(String.valueOf(new Date().getTime());
-                        //PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-                        //DebugMessage.sendInoIfDebug("checking connection");
-                        if(SendMessageList.size()>20) {
-                            SendMessageList.clear();
-                            //TODO Call reconnect
-                        }
+                synchronized (ConnectCheckList) {
+                    CRC32C sum = new CRC32C();
+                    Random random = new Random();
+                    sum.update(random.nextInt());
+                    sendRawMessage(sum.toString());
+                    ConnectCheckList.add(String.valueOf(new Date().getTime()));
+                    //PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
+                    //DebugMessage.sendInoIfDebug("checking connection");
+                    if (ConnectCheckList.size() > 20) {
+                        ConnectCheckList.clear();
+                        //TODO Call reconnect
+                    }
                 }
             }
-        }, 0L, worldSocketXConfig.getCheckRate()*20);
+        }, 0L, worldSocketXConfig.getCheckRate() * 20L);
     }
 }

@@ -168,10 +168,9 @@ public class SSLSocketClient {
                     CRC32C sum = new CRC32C();
                     Random random = new Random();
                     sum.update(random.nextInt());
+                    ConnectCheckList.add(sum.toString());
                     sendRawMessage(sum.toString());
-                    ConnectCheckList.add(String.valueOf(new Date().getTime()));
-                    //PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-                    //DebugMessage.sendInoIfDebug("checking connection");
+                    DebugMessage.sendInfoIfDebug("Checking connection");
                     if (ConnectCheckList.size() > 20) {
                         ConnectCheckList.clear();
                         //TODO Call reconnect

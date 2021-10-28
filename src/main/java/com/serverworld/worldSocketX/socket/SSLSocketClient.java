@@ -23,11 +23,9 @@ import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import com.serverworld.worldSocketX.paper.worldSocketXPaper;
 import com.serverworld.worldSocketX.paper.utils.DebugMessage;
 import net.md_5.bungee.api.ChatColor;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.net.ssl.SSLSocket;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -36,8 +34,9 @@ import java.util.zip.CRC32C;
 public class SSLSocketClient {
     //private sender sender = new sender();
 
-
+    private static boolean stopConnect;
     static SSLSocket socket;
+    static Connecter connecter;
     //private static Scanner in;
     //private static PrintWriter out;
 
@@ -45,38 +44,44 @@ public class SSLSocketClient {
     private static ConcurrentLinkedQueue<MessageObject> SendMessageList = new ConcurrentLinkedQueue<>();
     private static ConcurrentLinkedQueue<String> ConnectCheckList = new ConcurrentLinkedQueue<>();
 
-    public void startConnect(){
-        Connecter connecter = new Connecter();
+    public void startConnect() {
+        connecter = new Connecter();
+        connecter.start();
+        Checker();
+    }
+
+    public void ReConnect() {
+        stopConnect = true;
         connecter.start();
     }
 
-    class Connecter extends Thread{
+    class Connecter extends Thread {
         @Override
         public void run() {
             try {
                 SSLSocketKey socketKey = new SSLSocketKey();
                 socketKey.initialization();
 
-                socket = (SSLSocket) (socketKey.getCtx().getSocketFactory().createSocket(worldSocketXConfig.getHost(),worldSocketXConfig.getPort()));
+                socket = (SSLSocket) (socketKey.getCtx().getSocketFactory().createSocket(worldSocketXConfig.getHost(), worldSocketXConfig.getPort()));
                 socket.setSoTimeout(3000);
                 Scanner in = new Scanner(socket.getInputStream());
-                PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 DebugMessage.sendInfo("Loading login message...");
-                LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(),0);
+                LoginMessage loginMessage = new LoginMessage(worldSocketXConfig.getUUID(), 0);
                 out.println(loginMessage.getLoginJson());
                 DebugMessage.sendInfo("Login with: " + loginMessage.UUID);
                 DebugMessage.sendInfo("ProtocolVersion: " + 0);
-                while (true){
-                    if(in.hasNextLine()) {
+                while (!stopConnect) {
+                    if (in.hasNextLine()) {
                         String message = in.nextLine();
                         DebugMessage.sendInfoIfDebug("\n----Message receive----\n" + message + "\n----------------------");
-                        if(message.equals("ACCEPTED")){
+                        if (message.equals("ACCEPTED")) {
                             DebugMessage.sendInfo(ChatColor.GREEN + "Connected to server!");
-                        }else if(message.equals("ERROR::UUID_USED")) {
+                        } else if (message.equals("ERROR::UUID_USED")) {
                             DebugMessage.sendWarring(ChatColor.RED + "The UUID has been used!");
-                        }else if(message.startsWith("CHECK")){
+                        } else if (message.startsWith("CHECK")) {
 
-                        }else {
+                        } else {
                             Gson gson = new GsonBuilder().serializeNulls().create();
                             MessageObject msg = gson.fromJson(message, MessageObject.class);
 
@@ -109,7 +114,7 @@ public class SSLSocketClient {
 
                     }
                 }
-
+                DebugMessage.sendInfo("Connector closed");
             } catch (Exception e) {
                 e.printStackTrace();
                 DebugMessage.sendWarring(ChatColor.RED + "Error while connect to socket server");
@@ -171,8 +176,10 @@ public class SSLSocketClient {
                     ConnectCheckList.add(sum.toString());
                     sendRawMessage(sum.toString());
                     DebugMessage.sendInfoIfDebug("Checking connection");
-                    if (ConnectCheckList.size() > 20) {
+                    if (ConnectCheckList.size() > 10) {
                         ConnectCheckList.clear();
+                        DebugMessage.sendWarring(ChatColor.RED + "Unable connection to server");
+                        DebugMessage.sendWarring(ChatColor.RED + "Reconnecting...");
                         //TODO Call reconnect
                     }
                 }

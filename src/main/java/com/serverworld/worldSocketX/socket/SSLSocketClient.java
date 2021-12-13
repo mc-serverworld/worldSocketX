@@ -52,6 +52,11 @@ public class SSLSocketClient {
 
     public void ReConnect() {
         stopConnect = true;
+        while (stopConnect)
+            if (Connecter.currentThread().isInterrupted())
+                stopConnect = false;
+        DebugMessage.sendWarring(ChatColor.RED + "Connecter Stoped");
+        DebugMessage.sendWarring(ChatColor.RED + "Restart Connecter");
         connecter.start();
     }
 

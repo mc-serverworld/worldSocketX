@@ -1,5 +1,5 @@
 /*
- *     Copyright (C) 2021  mc-serverworld
+ *     Copyright (C) 2022  mc-serverworld
  *
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -85,11 +85,12 @@ public class SSLSocketClient {
                         } else if (message.equals("ERROR::UUID_USED")) {
                             DebugMessage.sendWarring(ChatColor.RED + "The UUID has been used!");
                         } else if (message.startsWith("CHECK")) {
-
+                            //receive check connection message, remove item form check list.
+                            ConnectCheckList.remove(message.split("::")[1]);
+                            DebugMessage.sendInfoIfDebug(ChatColor.GREEN + "CHECKED CONNECT: " + message.split("::")[1]);
                         } else {
                             Gson gson = new GsonBuilder().serializeNulls().create();
                             MessageObject msg = gson.fromJson(message, MessageObject.class);
-
                             /*
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jsonmsg = jsonParser.parse(message).getAsJsonObject();

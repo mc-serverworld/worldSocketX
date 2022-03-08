@@ -22,7 +22,7 @@ client:
   #rate to check connection, use tick (20tick = 1sec)
 
 SSL:
-  keyStore_file: "D:\\certificates\\minecraft\\KeyStore.keystore"
-  trustStore_file: "D:\\certificates\\minecraft\\TrustStore.keystore"
+  keyStore_file: "C:\\certificates\\minecraft\\KeyStore.keystore"
+  trustStore_file: "C:\\certificates\\minecraft\\TrustStore.keystore"
   keyStorePassword: "changeit"
   trustStorePassword: "changeit"

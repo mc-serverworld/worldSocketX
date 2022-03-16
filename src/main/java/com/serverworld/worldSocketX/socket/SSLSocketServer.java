@@ -140,7 +140,7 @@ public class SSLSocketServer extends Thread {
                                 for (ChannelObject stuff : Channels)
                                     if (stuff.getChannelName().equalsIgnoreCase(channelName))
                                         stuff.addClient(object);
-                            } else {
+                            } else {//if channel not exist
                                 ChannelObject newChannel = new ChannelObject(channelName);
                                 newChannel.addClient(object);
                                 Channels.add(newChannel);

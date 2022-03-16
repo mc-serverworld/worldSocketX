@@ -19,6 +19,8 @@ package com.serverworld.worldSocketX.waterfall;
 
 import com.serverworld.worldSocketX.config.worldSocketXConfig;
 import com.serverworld.worldSocketX.socket.SSLSocketServer;
+import com.serverworld.worldSocketX.waterfall.commands.WorldSocketXCommands;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -40,6 +42,7 @@ public class worldSocketXWaterFall extends Plugin {
         worldSocketXWaterFall = this;
         LoadConfig();
         startSocketServer();
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new WorldSocketXCommands(this));
     }
 
     public void LoadConfig() {

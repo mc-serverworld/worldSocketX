@@ -180,7 +180,7 @@ public class SSLSocketClient {
                     Random random = new Random();
                     sum.update(random.nextInt());
                     ConnectCheckList.add(sum.toString());
-                    sendRawMessage(sum.toString());
+                    sendRawMessage(sum.toString());//TODO send by SYS msg
                     DebugMessage.sendInfoIfDebug("Checking connection");
                     if (ConnectCheckList.size() > 10) {
                         ConnectCheckList.clear();
